@@ -1,0 +1,33 @@
+REGRAS DE PROGRAMACAO
+
+1. Identação
+	Sempre usar o espaçamento de tamanho TAB:
+	METHOD1
+		CODE
+		IF
+			CONDITION_BLOCK
+	
+2. Aninhamento
+	Como padrão usar:
+		if(CONDITION){
+			COMANDS
+		}
+	O padrão deve ser respeitado mesmo quando o uso das chaves é opcional
+
+3. Espaçamento entre métodos
+	Deve sempre existir uma linha em branco entre cada métodos
+	
+	METHOD1
+		CODE
+		
+	METHOD2
+		CODE
+		
+4. Espaçamento entre operadores
+	Usar sempre o espaçamento de tamanho SPACE entre operadores:
+	
+	X < 1;
+	Z = 3;
+	
+
+	
