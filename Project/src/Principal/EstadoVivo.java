@@ -18,5 +18,5 @@ public class EstadoVivo implements State {
         mapa.setPosJogadorX(0);
         mapa.setPosJogadorY(0);
     }
-    
+
 }

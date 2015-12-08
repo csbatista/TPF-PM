@@ -16,13 +16,15 @@ import Principal.Mapa;
  * @author Amanda
  */
 public class MKeyListener implements KeyListener {
+
     Mapa mapinha;
     Jogo joguinho;
-    public MKeyListener(Mapa m, Jogo j){
+
+    public MKeyListener(Mapa m, Jogo j) {
         mapinha = m;
         joguinho = j;
     }
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
 

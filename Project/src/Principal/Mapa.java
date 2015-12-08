@@ -6,6 +6,7 @@
 package Principal;
 
 public abstract class Mapa {
+
     private Jogador jogador;
     private int blocos[][];
     private int largura, altura;
@@ -15,17 +16,17 @@ public abstract class Mapa {
     public Mapa(int largura, int altura) {
         this.largura = largura;
         this.altura = altura;
-        blocos = new int [altura][largura];
+        blocos = new int[altura][largura];
         posJogadorX = 0;
         posJogadorY = 0;
         estadoJogador = null;
         jogador = null;
     }
-    
+
     public abstract void mover(Comando comando);
 
     public abstract void setBlocos();
-    
+
     public Jogador getJogador() {
         return jogador;
     }
@@ -49,12 +50,14 @@ public abstract class Mapa {
     public State getEstadoJogador() {
         return estadoJogador;
     }
-    
-    public void setBloco(int x, int y, int tipo){
-        if (x >= largura || y >= altura) return;
+
+    public void setBloco(int x, int y, int tipo) {
+        if (x >= largura || y >= altura) {
+            return;
+        }
         blocos[y][x] = tipo;
     }
-    
+
     public void setJogador(Jogador jogador) {
         this.jogador = jogador;
     }
@@ -78,24 +81,28 @@ public abstract class Mapa {
     public void setEstadoJogador(State estadoJogador) {
         this.estadoJogador = estadoJogador;
     }
-    
-    public int getBloco (int x, int y){
-        if(x < 0) x = 0;
-        if(y < 0) y = 0;
+
+    public int getBloco(int x, int y) {
+        if (x < 0) {
+            x = 0;
+        }
+        if (y < 0) {
+            y = 0;
+        }
         return blocos[y][x];
     }
-    
+
     public boolean isPosicaoValida() {
         return blocos[posJogadorY][posJogadorX] == 0;
     }
-    
+
     @Override
     public String toString() {
         String retorno = "";
-        
-        for (int i = 0; i < altura; i++){
-            for (int j = 0; j < largura; j++){
-                if(j == posJogadorX && i == posJogadorY) {
+
+        for (int i = 0; i < altura; i++) {
+            for (int j = 0; j < largura; j++) {
+                if (j == posJogadorX && i == posJogadorY) {
                     retorno += "J ";
                 } else {
                     retorno += blocos[i][j] + " ";
@@ -105,5 +112,5 @@ public abstract class Mapa {
         }
         return retorno;
     }
-    
+
 }

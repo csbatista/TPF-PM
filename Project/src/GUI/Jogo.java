@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 
 import Principal.Mapa;
 import Principal.Mapa01;
+import Principal.Mapa02;
 
 public class Jogo extends JFrame {
 
@@ -39,19 +40,19 @@ public class Jogo extends JFrame {
         //contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         //contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
-        mapinha = new Mapa01();
-        
+        mapinha = new Mapa02();
+        this.addKeyListener(new MKeyListener(mapinha, this));
+
         atualizaGUI();
     }
-    
-    public void atualizaGUI(){
+
+    public void atualizaGUI() {
         System.out.println("Atualizando mapa");
         contentPane.removeAll();
         contentPane.revalidate();
         contentPane.repaint();
-        
-        this.addKeyListener(new MKeyListener(mapinha, this));
-        setBounds(100, 100, mapinha.getAltura() * 50, mapinha.getLargura() * 50);       
+
+        setBounds(100, 100, mapinha.getAltura() * 50, mapinha.getLargura() * 50);
         for (int j = 0; j < mapinha.getLargura(); j++) {
             for (int i = 0; i < mapinha.getAltura(); i++) {
                 JLabel label = new JLabel();

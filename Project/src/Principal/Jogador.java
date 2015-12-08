@@ -7,21 +7,20 @@ package Principal;
 
 /*
 Jogador Singleton por se tratar de um jogo singleplayer.
-*/
-
+ */
 public class Jogador {
-    
+
     private static Jogador instance;
     private static String nome;
-    
-    private Jogador(String nome){
+
+    private Jogador(String nome) {
         this.nome = nome;
     }
-    
-    public static Jogador getInstance(String nome){
-        if(instance == null){
+
+    public static Jogador getInstance(String nome) {
+        if (instance == null) {
             instance = new Jogador(nome);
-        }else if(!Jogador.nome.equals(nome)){
+        } else if (!Jogador.nome.equals(nome)) {
             Jogador.setNome(nome);
         }
         return instance;
@@ -34,6 +33,5 @@ public class Jogador {
     public static void setNome(String nome) {
         Jogador.nome = nome;
     }
-    
-    
+
 }

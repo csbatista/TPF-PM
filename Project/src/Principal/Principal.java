@@ -25,22 +25,22 @@ public class Principal {
 
     public Principal() {
     }
-    
+
     public static void main(String[] args) throws IOException {
         GUI.Jogo b = new GUI.Jogo();
         //Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         //b.setLocation(dim.width/2-b.getSize().width/2, dim.height/2-b.getSize().height/2);
         b.setVisible(true);
-        
+
         Scanner sc = new Scanner(System.in);
         String com;
         //Mapa01 m = new Mapa01();
         //m.setJogador(Jogador.getInstance("Pedro"));
         //System.out.println(m.toString());
         //b.addKeyListener(new MKeyListener(m));
-       
-        while(true){
-            
+
+        while (true) {
+
 //            if (com.equals("w")){
 //                m.mover(CIMA);   
 //            }

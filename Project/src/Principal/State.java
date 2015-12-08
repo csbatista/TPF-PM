@@ -6,7 +6,7 @@
 package Principal;
 
 public interface State {
-    
+
     public void doAction(Mapa mapa);
-    
+
 }
