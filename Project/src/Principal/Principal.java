@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.ImageIcon;
+import GUI.MKeyListener;
 
 /**
  *
@@ -33,30 +34,26 @@ public class Principal {
         
         Scanner sc = new Scanner(System.in);
         String com;
-        Mapa01 m = new Mapa01();
-        m.setJogador(Jogador.getInstance("Pedro"));
-        System.out.println(m.toString());
-        b.addKeyListener(new MKeyListener());
-
-        
-        com = sc.next();
-        while(!com.equals("end")){
-            if (com.equals("w")){
-                m.mover(CIMA);
-                
-            }
-            if (com.equals("a")){
-                m.mover(ESQUERDA);
-            }
-            if (com.equals("s")){
-                m.mover(BAIXO);
-            }
-            if (com.equals("d")){
-                m.mover(DIREITA);
-            }
-            System.out.println(m.toString());
-            com = sc.next();
+        //Mapa01 m = new Mapa01();
+        //m.setJogador(Jogador.getInstance("Pedro"));
+        //System.out.println(m.toString());
+        //b.addKeyListener(new MKeyListener(m));
+       
+        while(true){
             
+//            if (com.equals("w")){
+//                m.mover(CIMA);   
+//            }
+//            if (com.equals("a")){
+//                m.mover(ESQUERDA);
+//            }
+//            if (com.equals("s")){
+//                m.mover(BAIXO);
+//            }
+//            if (com.equals("d")){
+//                m.mover(DIREITA);
+//            }
+            //System.out.println(m.toString());            
         }
     }
 }
