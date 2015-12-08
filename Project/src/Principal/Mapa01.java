@@ -5,6 +5,7 @@
  */
 package Principal;
 
+import GUI.*;
 import static Principal.Comando.*;
 
 /*
@@ -18,7 +19,7 @@ import static Principal.Comando.*;
 0 2 0 0 0 2 0 0
  */
 public class Mapa01 extends Mapa {
-
+      
     public Mapa01() {
         super(8, 8);
         setBlocos();
@@ -47,7 +48,7 @@ public class Mapa01 extends Mapa {
     }
 
     @Override
-    public void mover(Comando comando) {
+    public void mover(Comando comando, Jogo jogo) {
         if (getEstadoJogador() instanceof EstadoMorto) { //Se morto, revive
             getEstadoJogador().doAction(this);
         } else {
@@ -79,7 +80,8 @@ public class Mapa01 extends Mapa {
         }
 
         if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            System.out.println(Jogador.getNome() + " VENCEU!");
+            System.out.println(Jogador.getNome() + " PASSOU DE FASE!");
+            jogo.mudaFase();
         }
     }
 

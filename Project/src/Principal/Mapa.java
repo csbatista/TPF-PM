@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import GUI.Jogo;
+
 public abstract class Mapa {
 
     private Jogador jogador;
@@ -23,7 +25,7 @@ public abstract class Mapa {
         jogador = null;
     }
 
-    public abstract void mover(Comando comando);
+    public abstract void mover(Comando comando, Jogo jogo);
 
     public abstract void setBlocos();
 

@@ -3,16 +3,16 @@ package GUI;
 import java.awt.*;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
-import Principal.Mapa;
-import Principal.Mapa01;
-import Principal.Mapa02;
+import Principal.*;
+import java.awt.event.KeyListener;
 
 public class Jogo extends JFrame {
 
     private JPanel contentPane;
     private Mapa mapinha;
+    private KeyListener fase1;
+    private KeyListener fase2;
 
     /**
      * Launch the application.
@@ -40,8 +40,10 @@ public class Jogo extends JFrame {
         //contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         //contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
-        mapinha = new Mapa02();
-        this.addKeyListener(new MKeyListener(mapinha, this));
+        mapinha = new Mapa01();
+        mapinha.setJogador(Jogador.getInstance("Pedro"));
+        fase1 = new MKeyListener(mapinha, this);
+        this.addKeyListener(fase1);
 
         atualizaGUI();
     }
@@ -87,5 +89,13 @@ public class Jogo extends JFrame {
             layout.setHgap(0);
             contentPane.setLayout(layout);
         }
+    }
+
+    public void mudaFase() {
+        mapinha = new Mapa02();
+        removeKeyListener(fase1);
+        fase2 = new MKeyListener(mapinha, this);
+        addKeyListener(fase2);
+        atualizaGUI();
     }
 }

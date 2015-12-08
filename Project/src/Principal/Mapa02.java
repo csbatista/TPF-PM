@@ -6,6 +6,8 @@
 package Principal;
 
 import static Principal.Comando.*;
+import GUI.Jogo;
+import GUI.MKeyListener;
 
 /*
 0 0 0 1 0 0 0 0
@@ -47,7 +49,7 @@ public class Mapa02 extends Mapa {
     }
 
     @Override
-    public void mover(Comando comando) {
+    public void mover(Comando comando, Jogo jogo) {
         if (getEstadoJogador() instanceof EstadoMorto) { //Se morto, revive
             getEstadoJogador().doAction(this);
         } else {

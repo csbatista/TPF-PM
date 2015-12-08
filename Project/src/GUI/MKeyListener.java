@@ -38,20 +38,16 @@ public class MKeyListener implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            mapinha.mover(CIMA);
-            System.out.println("apertou cima");
+            mapinha.mover(CIMA, joguinho);
             joguinho.atualizaGUI();
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            mapinha.mover(BAIXO);
-            System.out.println("apertou baixo");
+            mapinha.mover(BAIXO, joguinho);
             joguinho.atualizaGUI();
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            mapinha.mover(DIREITA);
-            System.out.println("apertou dir");
+            mapinha.mover(DIREITA, joguinho);
             joguinho.atualizaGUI();
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            mapinha.mover(ESQUERDA);
-            System.out.println("apertou esq");
+            mapinha.mover(ESQUERDA, joguinho);
             joguinho.atualizaGUI();
         }
         System.out.println(mapinha.toString());
