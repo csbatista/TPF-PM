@@ -95,7 +95,7 @@ public abstract class Mapa {
     }
 
     public boolean isPosicaoValida() {
-        return blocos[posJogadorY][posJogadorX] == 0;
+        return blocos[posJogadorY][posJogadorX] == 0 || blocos[posJogadorY][posJogadorX] == 3;
     }
 
     @Override

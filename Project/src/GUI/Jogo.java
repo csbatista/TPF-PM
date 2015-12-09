@@ -49,7 +49,7 @@ public class Jogo extends JFrame {
     }
 
     public void atualizaGUI() {
-        System.out.println("Atualizando mapa");
+        //System.out.println("Atualizando mapa");
         contentPane.removeAll();
         contentPane.revalidate();
         contentPane.repaint();
@@ -74,6 +74,11 @@ public class Jogo extends JFrame {
                 }
                 if (mapinha.getBloco(i, j) == 2) {
                     label.setIcon(new ImageIcon(getClass().getResource("bomb.png")));
+                    //label.setBackground(new Color(100, 100, 100));
+                    //label.setText(i+"_"+j+"2");
+                }
+                if (mapinha.getBloco(i, j) == 3) {
+                    label.setIcon(new ImageIcon(getClass().getResource("estrela.png")));
                     //label.setBackground(new Color(100, 100, 100));
                     //label.setText(i+"_"+j+"2");
                 }

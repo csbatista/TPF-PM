@@ -34,18 +34,26 @@ public class Mapa02 extends Mapa {
                 setBloco(i, j, 0);
             }
         }
-        setBloco(1, 1, 2);
-        setBloco(1, 3, 2);
-        setBloco(1, 5, 2);
+        setBloco(7, 7, 3);
+        setBloco(0, 2, 2);
         setBloco(1, 7, 2);
-        setBloco(5, 1, 2);
-        setBloco(5, 3, 2);
-        setBloco(5, 5, 2);
-        setBloco(5, 7, 2);
-        setBloco(3, 0, 1);
-        setBloco(3, 2, 1);
-        setBloco(3, 4, 1);
-        setBloco(3, 6, 1);
+        setBloco(2, 5, 2);
+        setBloco(3, 2, 2);
+        setBloco(4, 3, 2);
+        setBloco(7, 4, 2);
+        setBloco(4, 0, 2);
+        setBloco(5, 6, 2);
+        setBloco(7, 0, 2);
+        setBloco(5, 4, 1);
+        setBloco(4, 7, 1);
+        setBloco(0, 6, 1);
+        setBloco(1, 0, 1);
+        setBloco(1, 4, 1);
+        setBloco(2, 2, 1);
+        setBloco(3, 5, 1);
+        setBloco(5, 1, 1);
+        setBloco(7, 3, 1);
+        setBloco(7, 6, 1);
     }
 
     @Override
