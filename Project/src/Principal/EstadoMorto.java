@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import Mapas.Mapa;
+
 /**
  *
  * @author gusta

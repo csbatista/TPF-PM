@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Principal;
+package Mapas;
 
 import GUI.Jogo;
+import Principal.Comando;
+import Principal.Jogador;
+import Principal.State;
 
 public abstract class Mapa {
 
@@ -95,7 +98,7 @@ public abstract class Mapa {
     }
 
     public boolean isPosicaoValida() {
-        return blocos[posJogadorY][posJogadorX] == 0 || blocos[posJogadorY][posJogadorX] == 3;
+        return blocos[posJogadorY][posJogadorX] == 0 || blocos[posJogadorY][posJogadorX] == 3 || blocos[posJogadorY][posJogadorX] == 4;
     }
 
     @Override

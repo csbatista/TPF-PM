@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Principal;
+package Mapas;
 
+import GUI.*;
+import Principal.Comando;
+import Principal.EstadoMorto;
+import Principal.EstadoVivo;
+import Principal.Jogador;
 import static Principal.Comando.*;
-import GUI.Jogo;
-import GUI.MKeyListener;
 
 /*
 0 0 0 1 0 0 0 0
@@ -19,9 +22,10 @@ import GUI.MKeyListener;
 0 0 0 1 0 0 0 0
 0 2 0 0 0 2 0 0
  */
-public class Mapa02 extends Mapa {
 
-    public Mapa02() {
+public class Mapa01 extends Mapa {
+      
+    public Mapa01() {
         super(8, 8);
         setBlocos();
         setEstadoJogador(new EstadoVivo());
@@ -62,23 +66,23 @@ public class Mapa02 extends Mapa {
             getEstadoJogador().doAction(this);
         } else {
             if (comando == ESQUERDA) {
-                if (getPosJogadorX() < getLargura() - 1 && getBloco(getPosJogadorX() + 1, getPosJogadorY()) != 1) {
-                    setPosJogadorX(getPosJogadorX() + 1);
-                }
-            }
-            if (comando == DIREITA) {
                 if (getPosJogadorX() - 1 >= 0 && getBloco(getPosJogadorX() - 1, getPosJogadorY()) != 1) {
                     setPosJogadorX(getPosJogadorX() - 1);
                 }
             }
+            if (comando == DIREITA) {
+                if (getPosJogadorX() < getLargura() - 1 && getBloco(getPosJogadorX() + 1, getPosJogadorY()) != 1) {
+                    setPosJogadorX(getPosJogadorX() + 1);
+                }
+            }
             if (comando == CIMA) {
-                if (getPosJogadorY() < getAltura() - 1 && getBloco(getPosJogadorX(), getPosJogadorY() + 1) != 1) {
-                    setPosJogadorY(getPosJogadorY() + 1);
+                if (getPosJogadorY() - 1 >= 0 && getBloco(getPosJogadorX(), getPosJogadorY() - 1) != 1) {
+                    setPosJogadorY(getPosJogadorY() - 1);
                 }
             }
             if (comando == BAIXO) {
-                if (getPosJogadorY() - 1 >= 0 && getBloco(getPosJogadorX(), getPosJogadorY() - 1) != 1) {
-                    setPosJogadorY(getPosJogadorY() - 1);
+                if (getPosJogadorY() < getAltura() - 1 && getBloco(getPosJogadorX(), getPosJogadorY() + 1) != 1) {
+                    setPosJogadorY(getPosJogadorY() + 1);
                 }
             }
         }
@@ -89,7 +93,8 @@ public class Mapa02 extends Mapa {
         }
 
         if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            System.out.println(Jogador.getNome() + " VENCEU!");
+            System.out.println(Jogador.getNome() + " PASSOU DE FASE!");
+            jogo.mudaFase02();
         }
     }
 

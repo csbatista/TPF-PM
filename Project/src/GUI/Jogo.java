@@ -1,5 +1,6 @@
 package GUI;
 
+import Mapas.*;
 import java.awt.*;
 
 import javax.swing.*;
@@ -13,6 +14,8 @@ public class Jogo extends JFrame {
     private Mapa mapinha;
     private KeyListener fase1;
     private KeyListener fase2;
+    private KeyListener fase3;
+    private KeyListener fase4;
 
     /**
      * Launch the application.
@@ -62,7 +65,7 @@ public class Jogo extends JFrame {
                 //label.setMaximumSize(new Dimension (100,100));
                 //label.setMinimumSize(new Dimension (100,100));
                 //label.setText(Integer.toString(mapa.getBloco(i, j)));
-                if (mapinha.getBloco(i, j) == 0) {
+                if (mapinha.getBloco(i, j) == 0 || mapinha.getBloco(i, j) == 4 || mapinha.getBloco(i, j) == 5) {
                     label.setIcon(new ImageIcon(getClass().getResource("vazio.png")));
                     //label.setBackground(new Color(255, 255, 255));
                     //label.setText(i+"_"+j+"0");
@@ -96,11 +99,27 @@ public class Jogo extends JFrame {
         }
     }
 
-    public void mudaFase() {
+    public void mudaFase02() {
         mapinha = new Mapa02();
         removeKeyListener(fase1);
         fase2 = new MKeyListener(mapinha, this);
         addKeyListener(fase2);
+        atualizaGUI();
+    }
+    
+    public void mudaFase03() {
+        mapinha = new Mapa03();
+        removeKeyListener(fase2);
+        fase3 = new MKeyListener(mapinha, this);
+        addKeyListener(fase3);
+        atualizaGUI();
+    }
+    
+    public void mudaFase04() {
+        mapinha = new Mapa04();
+        removeKeyListener(fase3);
+        fase4 = new MKeyListener(mapinha, this);
+        addKeyListener(fase4);
         atualizaGUI();
     }
 }

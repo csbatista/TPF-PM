@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Principal;
+package Mapas;
 
 import GUI.*;
+import Principal.Comando;
+import Principal.EstadoMorto;
+import Principal.EstadoVivo;
+import Principal.Jogador;
 import static Principal.Comando.*;
 
 /*
@@ -19,9 +23,9 @@ import static Principal.Comando.*;
 0 2 0 0 0 2 0 0
  */
 
-public class Mapa01 extends Mapa {
+public class Mapa04 extends Mapa {
       
-    public Mapa01() {
+    public Mapa04() {
         super(8, 8);
         setBlocos();
         setEstadoJogador(new EstadoVivo());
@@ -35,15 +39,15 @@ public class Mapa01 extends Mapa {
             }
         }
         setBloco(7, 7, 3);
-        setBloco(0, 2, 2);
-        setBloco(1, 7, 2);
-        setBloco(2, 5, 2);
-        setBloco(3, 2, 2);
-        setBloco(4, 3, 2);
-        setBloco(7, 4, 2);
-        setBloco(4, 0, 2);
-        setBloco(5, 6, 2);
-        setBloco(7, 0, 2);
+        setBloco(0, 2, 5);
+        setBloco(1, 7, 5);
+        setBloco(2, 5, 5);
+        setBloco(3, 2, 5);
+        setBloco(4, 3, 5);
+        setBloco(7, 4, 5);
+        setBloco(4, 0, 5);
+        setBloco(5, 6, 5);
+        setBloco(7, 0, 5);
         setBloco(5, 4, 1);
         setBloco(4, 7, 1);
         setBloco(0, 6, 1);
@@ -89,8 +93,7 @@ public class Mapa01 extends Mapa {
         }
 
         if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            System.out.println(Jogador.getNome() + " PASSOU DE FASE!");
-            jogo.mudaFase();
+            System.out.println(Jogador.getNome() + " VENCEU!");
         }
     }
 

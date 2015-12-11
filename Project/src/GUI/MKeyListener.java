@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import static Principal.Comando.*;
-import Principal.Mapa;
+import Mapas.Mapa;
 
 /**
  *
