@@ -38,24 +38,34 @@ public abstract class Mapa {
         if (getEstadoJogador() instanceof EstadoMorto) { //Se morto, revive
             getEstadoJogador().doAction(this);
         } else {
-            if (comando == ESQUERDA) {
-                if (getPosJogadorX() - 1 >= 0 && getBloco(getPosJogadorX() - 1, getPosJogadorY()) != 1) {
-                    setPosJogadorX(getPosJogadorX() - 1);
-                }
+            int newx=getPosJogadorX(), newy=getPosJogadorY();
+            if (null != comando) switch (comando) {
+                case ESQUERDA:
+                    newx = getPosJogadorX()-1;
+                    break;
+                case DIREITA:
+                    newx = getPosJogadorX()+1;
+                    break;
+                case CIMA:
+                    newy = getPosJogadorY()-1;
+                    break;
+                case BAIXO:
+                    newy = getPosJogadorY() + 1;
+                    break;
             }
-            if (comando == DIREITA) {
-                if (getPosJogadorX() < getLargura() - 1 && getBloco(getPosJogadorX() + 1, getPosJogadorY()) != 1) {
-                    setPosJogadorX(getPosJogadorX() + 1);
+            
+            if(isPosicaoValida(newx, newy))
+            {
+                int blockType = getBloco(newx, newy);
+                if(blockType != 1)
+                {
+                    setPosJogadorX(newx);
+                    setPosJogadorY(newy);
                 }
-            }
-            if (comando == CIMA) {
-                if (getPosJogadorY() - 1 >= 0 && getBloco(getPosJogadorX(), getPosJogadorY() - 1) != 1) {
-                    setPosJogadorY(getPosJogadorY() - 1);
-                }
-            }
-            if (comando == BAIXO) {
-                if (getPosJogadorY() < getAltura() - 1 && getBloco(getPosJogadorX(), getPosJogadorY() + 1) != 1) {
-                    setPosJogadorY(getPosJogadorY() + 1);
+                else if(blockType == 2)
+                {
+                    // Show a red plane when the user hits a bomb.
+                    this.showRedPlane();
                 }
             }
         }
@@ -63,11 +73,6 @@ public abstract class Mapa {
         if (!isPosicaoValida()) {//Se posicao inválida, morre
             System.out.println(getPosJogadorX() + " " + getPosJogadorY() + "\n");
             getEstadoJogador().doAction(this);
-        }
-
-        if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            System.out.println(Jogador.getNome() + " PASSOU DE FASE!");
-            jogo.mudaFase02();
         }
     }
     
@@ -138,10 +143,24 @@ public abstract class Mapa {
         return blocos[y][x];
     }
 
-    public boolean isPosicaoValida() {
+    protected boolean isPosicaoValida() {
         return blocos[posJogadorY][posJogadorX] == 0 || blocos[posJogadorY][posJogadorX] == 3 || blocos[posJogadorY][posJogadorX] == 4;
     }
-
+    
+    
+    protected boolean isPosicaoValida(int x, int y)
+    {
+        if(x < 0 || y < 0) return false;
+        if(x >= getLargura() || y >= getAltura()) return false;
+        return true;
+    }
+    
+    protected void showRedPlane()
+    {
+        
+    }
+    
+    
     @Override
     public String toString() {
         String retorno = "";

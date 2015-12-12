@@ -59,5 +59,14 @@ public class Mapa01 extends Mapa {
         setBloco(7, 3, 1);
         setBloco(7, 6, 1);
     }
-
+    
+    @Override
+    public void mover(Comando comando, Jogo jogo) {
+        
+        super.mover(comando, jogo);
+        if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
+            System.out.println(Jogador.getNome() + " PASSOU DE FASE!");
+            jogo.mudaFase02();
+        }
+    }
 }
