@@ -60,42 +60,4 @@ public class Mapa01 extends Mapa {
         setBloco(7, 6, 1);
     }
 
-    @Override
-    public void mover(Comando comando, Jogo jogo) {
-        if (getEstadoJogador() instanceof EstadoMorto) { //Se morto, revive
-            getEstadoJogador().doAction(this);
-        } else {
-            if (comando == ESQUERDA) {
-                if (getPosJogadorX() - 1 >= 0 && getBloco(getPosJogadorX() - 1, getPosJogadorY()) != 1) {
-                    setPosJogadorX(getPosJogadorX() - 1);
-                }
-            }
-            if (comando == DIREITA) {
-                if (getPosJogadorX() < getLargura() - 1 && getBloco(getPosJogadorX() + 1, getPosJogadorY()) != 1) {
-                    setPosJogadorX(getPosJogadorX() + 1);
-                }
-            }
-            if (comando == CIMA) {
-                if (getPosJogadorY() - 1 >= 0 && getBloco(getPosJogadorX(), getPosJogadorY() - 1) != 1) {
-                    setPosJogadorY(getPosJogadorY() - 1);
-                }
-            }
-            if (comando == BAIXO) {
-                if (getPosJogadorY() < getAltura() - 1 && getBloco(getPosJogadorX(), getPosJogadorY() + 1) != 1) {
-                    setPosJogadorY(getPosJogadorY() + 1);
-                }
-            }
-        }
-
-        if (!isPosicaoValida()) {//Se posicao inválida, morre
-            System.out.println(getPosJogadorX() + " " + getPosJogadorY() + "\n");
-            getEstadoJogador().doAction(this);
-        }
-
-        if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            System.out.println(Jogador.getNome() + " PASSOU DE FASE!");
-            jogo.mudaFase02();
-        }
-    }
-
 }
