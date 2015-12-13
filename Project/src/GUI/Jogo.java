@@ -1,4 +1,4 @@
-package GUI;
+ package GUI;
 
 import Mapas.*;
 import java.awt.*;
@@ -27,7 +27,7 @@ public class Jogo extends JFrame {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -38,6 +38,10 @@ public class Jogo extends JFrame {
                 }
             }
         });
+    }*/
+    public void IniciaJogo(){
+        Jogo frame = new Jogo();
+        frame.setVisible(true);
     }
 
     /**
@@ -88,7 +92,7 @@ public class Jogo extends JFrame {
                     //label.setText(i+"_"+j+"2");
                 }
                 if (mapinha.getBloco(i, j) == ESTRELA) {
-                    label.setIcon(new ImageIcon(getClass().getResource("estrela.png")));
+                    label.setIcon(new ImageIcon(getClass().getResource("pirate_treasure.png")));
                     //label.setBackground(new Color(100, 100, 100));
                     //label.setText(i+"_"+j+"2");
                 }
