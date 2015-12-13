@@ -32,38 +32,35 @@ public abstract class Mapa {
         estadoJogador = null;
         jogador = null;
     }
-    
-    
+
     public void mover(Comando comando, Jogo jogo) {
         if (getEstadoJogador() instanceof EstadoMorto) { //Se morto, revive
             getEstadoJogador().doAction(this);
         } else {
-            int newx=getPosJogadorX(), newy=getPosJogadorY();
-            if (null != comando) switch (comando) {
-                case ESQUERDA:
-                    newx = getPosJogadorX()-1;
-                    break;
-                case DIREITA:
-                    newx = getPosJogadorX()+1;
-                    break;
-                case CIMA:
-                    newy = getPosJogadorY()-1;
-                    break;
-                case BAIXO:
-                    newy = getPosJogadorY() + 1;
-                    break;
+            int newx = getPosJogadorX(), newy = getPosJogadorY();
+            if (null != comando) {
+                switch (comando) {
+                    case ESQUERDA:
+                        newx = getPosJogadorX() - 1;
+                        break;
+                    case DIREITA:
+                        newx = getPosJogadorX() + 1;
+                        break;
+                    case CIMA:
+                        newy = getPosJogadorY() - 1;
+                        break;
+                    case BAIXO:
+                        newy = getPosJogadorY() + 1;
+                        break;
+                }
             }
-            
-            if(isPosicaoValida(newx, newy))
-            {
+
+            if (isPosicaoValida(newx, newy)) {
                 int blockType = getBloco(newx, newy);
-                if(blockType != 1)
-                {
+                if (blockType != 1) {
                     setPosJogadorX(newx);
                     setPosJogadorY(newy);
-                }
-                else if(blockType == 2)
-                {
+                } else if (blockType == 2) {
                     // Show a red plane when the user hits a bomb.
                     this.showRedPlane();
                 }
@@ -75,7 +72,7 @@ public abstract class Mapa {
             getEstadoJogador().doAction(this);
         }
     }
-    
+
     public abstract void setBlocos();
 
     public Jogador getJogador() {
@@ -146,21 +143,21 @@ public abstract class Mapa {
     protected boolean isPosicaoValida() {
         return blocos[posJogadorY][posJogadorX] == 0 || blocos[posJogadorY][posJogadorX] == 3 || blocos[posJogadorY][posJogadorX] == 4;
     }
-    
-    
-    protected boolean isPosicaoValida(int x, int y)
-    {
-        if(x < 0 || y < 0) return false;
-        if(x >= getLargura() || y >= getAltura()) return false;
+
+    protected boolean isPosicaoValida(int x, int y) {
+        if (x < 0 || y < 0) {
+            return false;
+        }
+        if (x >= getLargura() || y >= getAltura()) {
+            return false;
+        }
         return true;
     }
-    
-    protected void showRedPlane()
-    {
-        
+
+    protected void showRedPlane() {
+
     }
-    
-    
+
     @Override
     public String toString() {
         String retorno = "";

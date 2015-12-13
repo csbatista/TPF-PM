@@ -10,6 +10,13 @@ import java.awt.event.KeyListener;
 
 public class Jogo extends JFrame {
 
+    final int VAZIO = 0;
+    final int TIJOLO = 1;
+    final int BOMBA = 2;
+    final int ESTRELA = 3;
+    final int TIJOLO_ESCONDIDO = 4;
+    final int BOMBA_ESCONDIDA = 5;
+    
     private JPanel contentPane;
     private Mapa mapinha;
     private KeyListener fase1;
@@ -65,22 +72,22 @@ public class Jogo extends JFrame {
                 //label.setMaximumSize(new Dimension (100,100));
                 //label.setMinimumSize(new Dimension (100,100));
                 //label.setText(Integer.toString(mapa.getBloco(i, j)));
-                if (mapinha.getBloco(i, j) == 0 || mapinha.getBloco(i, j) == 4 || mapinha.getBloco(i, j) == 5) {
+                if (mapinha.getBloco(i, j) == VAZIO || mapinha.getBloco(i, j) == TIJOLO_ESCONDIDO || mapinha.getBloco(i, j) == BOMBA_ESCONDIDA) {
                     label.setIcon(new ImageIcon(getClass().getResource("vazio.png")));
                     //label.setBackground(new Color(255, 255, 255));
                     //label.setText(i+"_"+j+"0");
                 }
-                if (mapinha.getBloco(i, j) == 1) {
+                if (mapinha.getBloco(i, j) == TIJOLO) {
                     label.setIcon(new ImageIcon(getClass().getResource("tijolo.png")));
                     //label.setBackground(new Color(100, 100, 100));
                     //label.setText(i+"_"+j+"1");
                 }
-                if (mapinha.getBloco(i, j) == 2) {
+                if (mapinha.getBloco(i, j) == BOMBA) {
                     label.setIcon(new ImageIcon(getClass().getResource("bomb.png")));
                     //label.setBackground(new Color(100, 100, 100));
                     //label.setText(i+"_"+j+"2");
                 }
-                if (mapinha.getBloco(i, j) == 3) {
+                if (mapinha.getBloco(i, j) == ESTRELA) {
                     label.setIcon(new ImageIcon(getClass().getResource("estrela.png")));
                     //label.setBackground(new Color(100, 100, 100));
                     //label.setText(i+"_"+j+"2");
