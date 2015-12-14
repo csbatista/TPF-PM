@@ -1,14 +1,13 @@
 package Mapas;
 
 import GUI.Jogo;
-import Principal.Comando;
-import static Principal.Comando.BAIXO;
-import static Principal.Comando.CIMA;
-import static Principal.Comando.DIREITA;
-import static Principal.Comando.ESQUERDA;
-import Principal.EstadoMorto;
-import Principal.Jogador;
-import Principal.State;
+import static Mapas.Comando.BAIXO;
+import static Mapas.Comando.CIMA;
+import static Mapas.Comando.DIREITA;
+import static Mapas.Comando.ESQUERDA;
+import EstadosJogador.EstadoMorto;
+import Jogador.Jogador;
+import EstadosJogador.State;
 
 public abstract class Mapa {
 

@@ -3,7 +3,7 @@ package GUI;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import static Principal.Comando.*;
+import static Mapas.Comando.*;
 import Mapas.Mapa;
 
 public class MKeyListener implements KeyListener {

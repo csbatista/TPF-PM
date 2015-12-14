@@ -1,5 +1,5 @@
 COMP=javac
-JAVA_FILES = src/Principal/*.java src/Mapas/*.java src/GUI/*.java 
+JAVA_FILES = Principal/*.java Mapas/*.java GUI/*.java 
 BIN_DIR = ./bin/
 
 build:

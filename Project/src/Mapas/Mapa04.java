@@ -1,9 +1,8 @@
 package Mapas;
 
 import GUI.*;
-import Principal.Comando;
-import Principal.EstadoVivo;
-import Principal.Jogador;
+import EstadosJogador.EstadoVivo;
+import Jogador.Jogador;
 
 public class Mapa04 extends Mapa {
 
@@ -49,7 +48,7 @@ public class Mapa04 extends Mapa {
 
         super.mover(comando, jogo);
         if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            jogo.mudaFase05();
+            jogo.mudarFase(true);
         }
     }
 }
