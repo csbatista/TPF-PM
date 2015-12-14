@@ -32,30 +32,30 @@ public abstract class Mapa {
         if (getEstadoJogador() instanceof EstadoMorto) { //Se morto, revive
             getEstadoJogador().doAction(this);
         } else {
-            int newx = getPosJogadorX(), newy = getPosJogadorY();
+            int posX = getPosJogadorX(), posY = getPosJogadorY();
             if (null != comando) {
                 switch (comando) {
                     case ESQUERDA:
-                        newx = getPosJogadorX() - 1;
+                        posX = getPosJogadorX() - 1;
                         break;
                     case DIREITA:
-                        newx = getPosJogadorX() + 1;
+                        posX = getPosJogadorX() + 1;
                         break;
                     case CIMA:
-                        newy = getPosJogadorY() - 1;
+                        posY = getPosJogadorY() - 1;
                         break;
                     case BAIXO:
-                        newy = getPosJogadorY() + 1;
+                        posY = getPosJogadorY() + 1;
                         break;
                 }
             }
 
-            if (isPosicaoValida(newx, newy)) {
-                int blockType = getBloco(newx, newy);
-                if (blockType != 1) {
-                    setPosJogadorX(newx);
-                    setPosJogadorY(newy);
-                } else if (blockType == 2) {
+            if (isPosicaoValida(posX, posY)) {
+                int blockType = getBloco(posX, posY);
+                if (blockType != 1 && blockType != 4) {
+                    setPosJogadorX(posX);
+                    setPosJogadorY(posY);
+                } else if (blockType == 2 && blockType == 5) {
                     // Show a red plane when the user hits a bomb.
                     this.showRedPlane();
                 }
