@@ -173,8 +173,6 @@ public class Jogo extends javax.swing.JFrame {
         new Thread(new Runnable() {
             public void run() {
                 try {
-                    
-                    System.out.println("URL: " + url);
                     AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("audio//" + url));
                     AudioFormat format = inputStream.getFormat();
                     Info info = new Info(Clip.class, format);
