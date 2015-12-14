@@ -1,5 +1,4 @@
-package GUI;
-
+import GUI.Jogo;
 import java.awt.Dimension;
 import java.awt.event.*;
 import javax.swing.ImageIcon;
@@ -22,7 +21,7 @@ public class Inicio extends javax.swing.JFrame {
 
         JLabel label = new JLabel();
         label.setMinimumSize(new Dimension(400, 400));
-        label.setIcon(new ImageIcon(getClass().getResource("fundo.jpg")));
+        label.setIcon(new ImageIcon(getClass().getResource("GUI/fundo.jpg")));
 
         label.addMouseListener(new MouseAdapter() {
             @Override
