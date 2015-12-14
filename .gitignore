@@ -1,6 +1,23 @@
 /Project/dist/
 
 *.class
+Project/bin/*.class
+Project/build/*.class
+Project/bin/GUI/*.class
+Project/bin/Mapas/*.class
+Project/bin/Principal/*.class
+Project/build/classes/GUI/*.class
+Project/build/classes/Mapas/*.class
+Project/build/classes/Principal/*.class
+Project/bin/*.orig
+Project/build/*.orig
+Project/bin/GUI/*.orig
+Project/bin/Mapas/*.orig
+Project/bin/Principal/*.orig
+Project/build/classes/GUI/*.orig
+Project/build/classes/Mapas/*.orig
+Project/build/classes/Principal/*.orig
+
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
