@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Principal;
 
 /*
-Jogador Singleton por se tratar de um jogo singleplayer.
+ * Jogador Singleton por se tratar de um jogo singleplayer.
  */
 public class Jogador {
 
@@ -14,7 +9,7 @@ public class Jogador {
     private static String nome;
 
     private Jogador(String nome) {
-        this.nome = nome;
+        Jogador.nome = nome;
     }
 
     public static Jogador getInstance(String nome) {

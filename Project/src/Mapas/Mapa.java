@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Mapas;
 
 import GUI.Jogo;
@@ -68,9 +63,26 @@ public abstract class Mapa {
         }
 
         if (!isPosicaoValida()) {//Se posicao inválida, morre
-            System.out.println(getPosJogadorX() + " " + getPosJogadorY() + "\n");
             getEstadoJogador().doAction(this);
         }
+    }
+
+    protected boolean isPosicaoValida() {
+        return blocos[posJogadorY][posJogadorX] == 0 || blocos[posJogadorY][posJogadorX] == 3 || blocos[posJogadorY][posJogadorX] == 4;
+    }
+
+    protected boolean isPosicaoValida(int x, int y) {
+        if (x < 0 || y < 0) {
+            return false;
+        }
+        if (x >= getLargura() || y >= getAltura()) {
+            return false;
+        }
+        return true;
+    }
+
+    protected void showRedPlane() {
+
     }
 
     public abstract void setBlocos();
@@ -138,24 +150,6 @@ public abstract class Mapa {
             y = 0;
         }
         return blocos[y][x];
-    }
-
-    protected boolean isPosicaoValida() {
-        return blocos[posJogadorY][posJogadorX] == 0 || blocos[posJogadorY][posJogadorX] == 3 || blocos[posJogadorY][posJogadorX] == 4;
-    }
-
-    protected boolean isPosicaoValida(int x, int y) {
-        if (x < 0 || y < 0) {
-            return false;
-        }
-        if (x >= getLargura() || y >= getAltura()) {
-            return false;
-        }
-        return true;
-    }
-
-    protected void showRedPlane() {
-
     }
 
     @Override

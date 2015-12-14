@@ -5,9 +5,9 @@ import Principal.Comando;
 import Principal.EstadoVivo;
 import Principal.Jogador;
 
-public class Mapa04 extends Mapa {
+public class Mapa05 extends Mapa {
 
-    public Mapa04() {
+    public Mapa05() {
         super(8, 8);
         setBlocos();
         setEstadoJogador(new EstadoVivo());
@@ -30,16 +30,16 @@ public class Mapa04 extends Mapa {
         setBloco(4, 0, 5);
         setBloco(5, 6, 5);
         setBloco(7, 0, 5);
-        setBloco(5, 4, 1);
-        setBloco(4, 7, 1);
-        setBloco(0, 6, 1);
-        setBloco(1, 0, 1);
-        setBloco(1, 4, 1);
-        setBloco(2, 2, 1);
-        setBloco(3, 5, 1);
-        setBloco(5, 1, 1);
-        setBloco(7, 3, 1);
-        setBloco(7, 6, 1);
+        setBloco(5, 4, 4);
+        setBloco(4, 7, 4);
+        setBloco(0, 6, 4);
+        setBloco(1, 0, 4);
+        setBloco(1, 4, 4);
+        setBloco(2, 2, 4);
+        setBloco(3, 5, 4);
+        setBloco(5, 1, 4);
+        setBloco(7, 3, 4);
+        setBloco(7, 6, 4);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Mapa04 extends Mapa {
 
         super.mover(comando, jogo);
         if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            jogo.mudaFase05();
+            //Tela final
         }
     }
 }

@@ -1,26 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
-
 
 import java.awt.Dimension;
 import java.awt.event.*;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- *
- * @author cbatista
- */
 public class Inicio extends javax.swing.JFrame {
-    
-    private JPanel contentPane;
+
+    private final JPanel contentPane;
 
     /**
      * Creates new form Inicio
@@ -29,30 +18,25 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         contentPane = new JPanel();
-        //contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        //contentPane.setLayout(new BorderLayout(0, 0));
         setContentPane(contentPane);
-        
+
         JLabel label = new JLabel();
-        label.setMinimumSize(new Dimension(500, 500));
+        label.setMinimumSize(new Dimension(400, 400));
         label.setIcon(new ImageIcon(getClass().getResource("fundo.jpg")));
-        
-        label.addMouseListener ( new MouseAdapter ()
-        {
-            public void mousePressed ( MouseEvent e )
-            {
+
+        label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
                 dispose();
                 Jogo novo_jogo = new Jogo();
                 novo_jogo.IniciaJogo();
             }
-        } );
-        
+        });
+
         contentPane.add(label);
-   
-        setBounds(100, 100, 500, 520);
+        setBounds(100, 100, 400, 400);
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
