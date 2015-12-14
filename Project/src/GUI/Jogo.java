@@ -1,5 +1,6 @@
 package GUI;
 
+import Jogador.Jogador;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -9,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Mapas.*;
-import Principal.*;
 import java.awt.Graphics;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -42,6 +42,7 @@ public class Jogo extends JFrame {
      * Create the frame.
      */
     public Jogo() {
+        tocarSom("newGame.wav");
         this.setTitle("This is the ONLY Level!");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contentPane = new JPanel();
@@ -49,7 +50,7 @@ public class Jogo extends JFrame {
         
         faseAtual = 1;
         mapa = new Mapa01();
-        mapa.setJogador(Jogador.getInstance("Pedro"));
+        mapa.setJogador(Jogador.getInstance());
         listener = new MKeyListener(mapa, this);
         this.addKeyListener(listener);
 
@@ -69,19 +70,19 @@ public class Jogo extends JFrame {
                 label.setMinimumSize(new Dimension(100, 100));
                 if (mapa.getBloco(i, j) == VAZIO || mapa.getBloco(i, j) == TIJOLO_ESCONDIDO
                         || mapa.getBloco(i, j) == BOMBA_ESCONDIDA) {
-                    label.setIcon(new ImageIcon(getClass().getResource("vazio.png")));
+                    label.setIcon(new ImageIcon(getClass().getResource("img//vazio.png")));
                 }
                 if (mapa.getBloco(i, j) == TIJOLO) {
-                    label.setIcon(new ImageIcon(getClass().getResource("tijolo.png")));
+                    label.setIcon(new ImageIcon(getClass().getResource("img//tijolo.png")));
                 }
                 if (mapa.getBloco(i, j) == BOMBA) {
-                    label.setIcon(new ImageIcon(getClass().getResource("bomb.png")));
+                    label.setIcon(new ImageIcon(getClass().getResource("img//bomb.png")));
                 }
                 if (mapa.getBloco(i, j) == ESTRELA) {
-                    label.setIcon(new ImageIcon(getClass().getResource("pirate_treasure.png")));
+                    label.setIcon(new ImageIcon(getClass().getResource("img//pirate_treasure.png")));
                 }
                 if (i == mapa.getPosJogadorX() && j == mapa.getPosJogadorY()) {
-                    label.setIcon(new ImageIcon(getClass().getResource("user.png")));
+                    label.setIcon(new ImageIcon(getClass().getResource("img//user.png")));
                 }
                 contentPane.add(label);
             }
@@ -101,7 +102,7 @@ public class Jogo extends JFrame {
         addKeyListener(listener);
         atualizaGUI();
         faseAtual++;
-        tocarSom("applause-8.wav");
+        tocarSom("newLevel.wav");
         JOptionPane.showMessageDialog(this, "Parabéns, você passou de fase!\nFase: " + faseAtual);
     }
 
@@ -127,7 +128,7 @@ public class Jogo extends JFrame {
             public void run() {
                 try {
                     Clip clip = AudioSystem.getClip();
-                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(url));
+                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("audio//" + url));
                     clip.open(inputStream);
                     clip.start(); 
                 } catch (Exception e) {

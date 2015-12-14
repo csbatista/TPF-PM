@@ -21,7 +21,7 @@ public class Inicio extends javax.swing.JFrame {
 
         JLabel label = new JLabel();
         label.setMinimumSize(new Dimension(400, 400));
-        label.setIcon(new ImageIcon(getClass().getResource("GUI/fundo.jpg")));
+        label.setIcon(new ImageIcon(getClass().getResource("GUI/img/fundo.jpg")));
 
         label.addMouseListener(new MouseAdapter() {
             @Override
