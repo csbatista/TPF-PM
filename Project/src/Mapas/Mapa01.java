@@ -49,7 +49,7 @@ public class Mapa01 extends Mapa {
 
         super.mover(comando, jogo);
         if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            jogo.mudaFase02();   
+            jogo.mudarFase();   
         }
     }
 }

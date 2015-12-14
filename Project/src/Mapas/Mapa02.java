@@ -79,7 +79,7 @@ public class Mapa02 extends Mapa {
         }
 
         if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            jogo.mudaFase03();
+            jogo.mudarFase();
         }
     }
 
