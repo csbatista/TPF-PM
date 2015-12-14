@@ -1,28 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Mapas;
 
 import static Principal.Comando.*;
 import GUI.Jogo;
-import GUI.MKeyListener;
 import Principal.Comando;
 import Principal.EstadoMorto;
 import Principal.EstadoVivo;
 import Principal.Jogador;
 
-/*
-0 0 0 1 0 0 0 0
-0 2 0 0 0 2 0 0
-0 0 0 1 0 0 0 0
-0 2 0 0 0 2 0 0
-0 0 0 1 0 0 0 0
-0 2 0 0 0 2 0 0
-0 0 0 1 0 0 0 0
-0 2 0 0 0 2 0 0
- */
 public class Mapa02 extends Mapa {
 
     public Mapa02() {
@@ -88,12 +72,10 @@ public class Mapa02 extends Mapa {
         }
 
         if (!isPosicaoValida()) {//Se posicao inválida, morre
-            System.out.println(getPosJogadorX() + " " + getPosJogadorY() + "\n");
             getEstadoJogador().doAction(this);
         }
 
         if (getPosJogadorX() + 1 == getLargura() && getPosJogadorY() + 1 == getAltura()) {
-            System.out.println(Jogador.getNome() + " PASSOU DE FASE!");
             jogo.mudaFase03();
         }
     }

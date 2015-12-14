@@ -50,18 +50,34 @@ public abstract class Mapa {
                 }
             }
 
+<<<<<<< HEAD
+            if (isPosicaoValida(newx, newy)) {
+                int blockType = getBloco(newx, newy);
+                if (blockType != 1) {
+                    setPosJogadorX(newx);
+                    setPosJogadorY(newy);
+=======
             if (isPosicaoValida(posX, posY)) {
                 int blockType = getBloco(posX, posY);
-                if (blockType != 1) {
+                if (blockType != 1 && blockType != 4) {
                     setPosJogadorX(posX);
                     setPosJogadorY(posY);
+                } else if (blockType == 2 && blockType == 5) {
+                    // Show a red plane when the user hits a bomb.
+                    this.showRedPlane();
+>>>>>>> e13b7e2e62de70bf91bf4bc24d61a501cb500546
                 }
             }
         }
 
+<<<<<<< HEAD
         if (!isPosicaoValida()) { //Se posicao inválida, morre
             // Show a red plane when the user hits a bomb.
             jogo.showRedPlane();
+            System.out.println(getPosJogadorX() + " " + getPosJogadorY() + "\n");
+=======
+        if (!isPosicaoValida()) {//Se posicao inválida, morre
+>>>>>>> e13b7e2e62de70bf91bf4bc24d61a501cb500546
             getEstadoJogador().doAction(this);
         }
     }
@@ -78,6 +94,10 @@ public abstract class Mapa {
             return false;
         }
         return true;
+    }
+
+    protected void showRedPlane() {
+
     }
 
     public abstract void setBlocos();
@@ -147,6 +167,23 @@ public abstract class Mapa {
         return blocos[y][x];
     }
 
+<<<<<<< HEAD
+    protected boolean isPosicaoValida() {
+        return blocos[posJogadorY][posJogadorX] == 0 || blocos[posJogadorY][posJogadorX] == 3 || blocos[posJogadorY][posJogadorX] == 4;
+    }
+
+    protected boolean isPosicaoValida(int x, int y) {
+        if (x < 0 || y < 0) {
+            return false;
+        }
+        if (x >= getLargura() || y >= getAltura()) {
+            return false;
+        }
+        return true;
+    }
+
+=======
+>>>>>>> e13b7e2e62de70bf91bf4bc24d61a501cb500546
     @Override
     public String toString() {
         String retorno = "";
