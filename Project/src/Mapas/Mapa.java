@@ -52,7 +52,7 @@ public abstract class Mapa {
 
             if (isPosicaoValida(posX, posY)) {
                 int blockType = getBloco(posX, posY);
-                if (blockType != 1) {
+                if (blockType != 1 && blockType != 4) {
                     setPosJogadorX(posX);
                     setPosJogadorY(posY);
                 }
