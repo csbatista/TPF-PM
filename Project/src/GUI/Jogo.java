@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.event.KeyListener;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -17,20 +16,16 @@ import java.awt.image.BufferedImage;
 
 public class Jogo extends JFrame {
 
-    final int VAZIO = 0;
-    final int TIJOLO = 1;
-    final int BOMBA = 2;
-    final int ESTRELA = 3;
-    final int TIJOLO_ESCONDIDO = 4;
-    final int BOMBA_ESCONDIDA = 5;
+    private final int VAZIO = 0;
+    private final int TIJOLO = 1;
+    private final int BOMBA = 2;
+    private final int ESTRELA = 3;
+    private final int TIJOLO_ESCONDIDO = 4;
+    private final int BOMBA_ESCONDIDA = 5;
 
-    private final JPanel contentPane;
+    private JPanel contentPane;
     private Mapa mapa;
-    private KeyListener fase1;
-    private KeyListener fase2;
-    private KeyListener fase3;
-    private KeyListener fase4;
-    private KeyListener fase5;
+    private KeyListener listener;
 
     public void IniciaJogo() {
         Jogo frame = new Jogo();
@@ -47,28 +42,12 @@ public class Jogo extends JFrame {
 
         mapa = new Mapa01();
         mapa.setJogador(Jogador.getInstance("Pedro"));
-        fase1 = new MKeyListener(mapa, this);
-        this.addKeyListener(fase1);
+        listener = new MKeyListener(mapa, this);
+        this.addKeyListener(listener);
 
         atualizaGUI();
     }
-    
-    public void showRedPlane() {
-        BufferedImage bi = new BufferedImage(mapa.getLargura()*50,
-                                             mapa.getAltura()*50,
-                                             BufferedImage.TYPE_INT_RGB);
-        Graphics g = bi.getGraphics();
-        g.setColor(new Color(255, 0, 0));
-        g.fillRect(0, 0, mapa.getLargura()*50, mapa.getAltura()*50);
-        g.drawImage(bi, 0, 0, mapa.getLargura()*50, mapa.getAltura()*50, null);
-        g.dispose();
-        
-        Graphics cpaneGraphics = contentPane.getGraphics();
-        cpaneGraphics.drawImage(bi, 0, 0, null);
-        cpaneGraphics.dispose();   
-        contentPane.repaint();
-    }
-    
+
     public void atualizaGUI() {
         contentPane.removeAll();
         contentPane.revalidate();
@@ -106,33 +85,49 @@ public class Jogo extends JFrame {
 
     public void mudaFase02() {
         mapa = new Mapa02();
-        removeKeyListener(fase1);
-        fase2 = new MKeyListener(mapa, this);
-        addKeyListener(fase2);
+        removeKeyListener(listener);
+        listener = new MKeyListener(mapa, this);
+        addKeyListener(listener);
         atualizaGUI();
     }
 
     public void mudaFase03() {
         mapa = new Mapa03();
-        removeKeyListener(fase2);
-        fase3 = new MKeyListener(mapa, this);
-        addKeyListener(fase3);
+        removeKeyListener(listener);
+        listener = new MKeyListener(mapa, this);
+        addKeyListener(listener);
         atualizaGUI();
     }
 
     public void mudaFase04() {
         mapa = new Mapa04();
-        removeKeyListener(fase3);
-        fase4 = new MKeyListener(mapa, this);
-        addKeyListener(fase4);
+        removeKeyListener(listener);
+        listener = new MKeyListener(mapa, this);
+        addKeyListener(listener);
         atualizaGUI();
     }
-    
+
     public void mudaFase05() {
         mapa = new Mapa05();
-        removeKeyListener(fase4);
-        fase5 = new MKeyListener(mapa, this);
-        addKeyListener(fase5);
+        removeKeyListener(listener);
+        listener = new MKeyListener(mapa, this);
+        addKeyListener(listener);
         atualizaGUI();
+    }
+
+    public void showRedPlane() {
+        BufferedImage bi = new BufferedImage(mapa.getLargura() * 50,
+                mapa.getAltura() * 50,
+                BufferedImage.TYPE_INT_RGB);
+        Graphics g = bi.getGraphics();
+        g.setColor(new Color(255, 0, 0));
+        g.fillRect(0, 0, mapa.getLargura() * 50, mapa.getAltura() * 50);
+        g.drawImage(bi, 0, 0, mapa.getLargura() * 50, mapa.getAltura() * 50, null);
+        g.dispose();
+
+        Graphics cpaneGraphics = contentPane.getGraphics();
+        cpaneGraphics.drawImage(bi, 0, 0, null);
+        cpaneGraphics.dispose();
+        contentPane.repaint();
     }
 }
