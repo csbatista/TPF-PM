@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import Principal.*;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
 public class Jogo extends JFrame {
 
@@ -23,22 +24,8 @@ public class Jogo extends JFrame {
     private KeyListener fase2;
     private KeyListener fase3;
     private KeyListener fase4;
-
-    /**
-     * Launch the application.
-     */
-    /*public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    Jogo frame = new Jogo();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }*/
+    
+    
     public void IniciaJogo(){
         Jogo frame = new Jogo();
         frame.setVisible(true);
@@ -61,13 +48,29 @@ public class Jogo extends JFrame {
 
         atualizaGUI();
     }
-
+    
+    public void showRedPlane() {
+        BufferedImage bi = new BufferedImage(mapinha.getLargura()*50,
+                                             mapinha.getAltura()*50,
+                                             BufferedImage.TYPE_INT_RGB);
+        Graphics g = bi.getGraphics();
+        g.setColor(new Color(255, 0, 0));
+        g.fillRect(0, 0, mapinha.getLargura()*50, mapinha.getAltura()*50);
+        g.drawImage(bi, 0, 0, mapinha.getLargura()*50, mapinha.getAltura()*50, null);
+        g.dispose();
+        
+        Graphics cpaneGraphics = contentPane.getGraphics();
+        cpaneGraphics.drawImage(bi, 0, 0, null);
+        cpaneGraphics.dispose();   
+        contentPane.repaint();
+    }
+    
     public void atualizaGUI() {
         //System.out.println("Atualizando mapa");
         contentPane.removeAll();
         contentPane.revalidate();
         contentPane.repaint();
-
+        
         setBounds(100, 100, mapinha.getAltura() * 50, mapinha.getLargura() * 50);
         for (int j = 0; j < mapinha.getLargura(); j++) {
             for (int i = 0; i < mapinha.getAltura(); i++) {

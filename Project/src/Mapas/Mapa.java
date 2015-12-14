@@ -60,14 +60,13 @@ public abstract class Mapa {
                 if (blockType != 1) {
                     setPosJogadorX(newx);
                     setPosJogadorY(newy);
-                } else if (blockType == 2) {
-                    // Show a red plane when the user hits a bomb.
-                    this.showRedPlane();
                 }
             }
         }
 
-        if (!isPosicaoValida()) {//Se posicao inválida, morre
+        if (!isPosicaoValida()) { //Se posicao inválida, morre
+            // Show a red plane when the user hits a bomb.
+            jogo.showRedPlane();
             System.out.println(getPosJogadorX() + " " + getPosJogadorY() + "\n");
             getEstadoJogador().doAction(this);
         }
@@ -152,10 +151,6 @@ public abstract class Mapa {
             return false;
         }
         return true;
-    }
-
-    protected void showRedPlane() {
-
     }
 
     @Override
