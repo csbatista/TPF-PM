@@ -20,5 +20,5 @@ run:
 
 clean:
 	rm -rf ./bin/*
-	rm -f *~	
+	rm -rf *~	
 	

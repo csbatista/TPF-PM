@@ -37,7 +37,6 @@ public class Jogo extends javax.swing.JFrame {
     
     private javax.swing.JMenu jMenuItem1;
     private javax.swing.JMenu jMenuItem2;
-    private javax.swing.JMenu jMenuItem3;
     private javax.swing.JMenuBar jMenuBar;
 
     public void IniciaJogo() {
@@ -50,7 +49,7 @@ public class Jogo extends javax.swing.JFrame {
      */
     public Jogo() {
         tocarSom("newGame.wav");
-        this.setTitle("This is the ONLY Level!");
+        this.setTitle("This is the ONLY Level! - Nivel 1");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contentPane = new JPanel();
         setContentPane(contentPane);
@@ -65,14 +64,6 @@ public class Jogo extends javax.swing.JFrame {
         jMenuBar = new javax.swing.JMenuBar();
         jMenuItem1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenu();
-        
-        
-        jMenuItem3 = new javax.swing.JMenu();
-        jMenuItem3.setText("Nivel 1");
-        jMenuItem3.setFocusable(false);
-        jMenuItem3.setRolloverEnabled(false);
-        jMenuBar.add(jMenuItem3);
         
         
         jMenuItem1.setText("Voltar Nivel");
@@ -153,7 +144,8 @@ public class Jogo extends javax.swing.JFrame {
             faseAtual--;
         }
         
-        jMenuItem3.setText("Nivel " + faseAtual);
+        
+        this.setTitle("This is the ONLY Level! - Nivel " + faseAtual);
         removeKeyListener(listener);
         listener = new MKeyListener(mapa, this);
         addKeyListener(listener);
