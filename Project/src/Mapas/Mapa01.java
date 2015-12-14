@@ -2,7 +2,6 @@ package Mapas;
 
 import GUI.*;
 import EstadosJogador.EstadoVivo;
-import Jogador.Jogador;
 
 public class Mapa01 extends Mapa {
 

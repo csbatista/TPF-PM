@@ -4,7 +4,6 @@ import static Mapas.Comando.*;
 import GUI.Jogo;
 import EstadosJogador.EstadoMorto;
 import EstadosJogador.EstadoVivo;
-import Jogador.Jogador;
 
 public class Mapa02 extends Mapa {
 

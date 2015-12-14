@@ -31,13 +31,13 @@ public class Jogo extends javax.swing.JFrame {
     private final int BOMBA_ESCONDIDA = 5;
     private int faseAtual;
     
-    private JPanel contentPane;
+    private final JPanel contentPane;
     private Mapa mapa;
     private KeyListener listener;
     
-    private javax.swing.JMenu jMenuItem1;
-    private javax.swing.JMenu jMenuItem2;
-    private javax.swing.JMenuBar jMenuBar;
+    private final javax.swing.JMenu jMenuItem1;
+    private final javax.swing.JMenu jMenuItem2;
+    private final javax.swing.JMenuBar jMenuBar;
 
     public void IniciaJogo() {
         Jogo frame = new Jogo();
@@ -60,14 +60,13 @@ public class Jogo extends javax.swing.JFrame {
         listener = new MKeyListener(mapa, this);
         this.addKeyListener(listener);
         
-        
         jMenuBar = new javax.swing.JMenuBar();
         jMenuItem1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenu();
         
-        
         jMenuItem1.setText("Voltar Nivel");
         jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 if(faseAtual > 1) {
                     mudarFase(false);
@@ -78,14 +77,13 @@ public class Jogo extends javax.swing.JFrame {
         
         jMenuItem2.setText("Sair");
         jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 System.exit(0);
             }
         });
         jMenuBar.add(jMenuItem2);
-
         setJMenuBar(jMenuBar);
-        
         
         atualizaGUI();
     }
@@ -94,7 +92,7 @@ public class Jogo extends javax.swing.JFrame {
         contentPane.removeAll();
         contentPane.revalidate();
         contentPane.repaint();
-        setBounds(100, 100, mapa.getAltura() * 50, mapa.getLargura() * 50);
+        setBounds(100, 100, mapa.getAltura() * 50 + 25, mapa.getLargura() * 50 + 25);
         contentPane.setBackground(Color.white);
 
         for (int j = 0; j < mapa.getLargura(); j++) {
@@ -134,7 +132,7 @@ public class Jogo extends javax.swing.JFrame {
             faseAtual++;
             
             tocarSom("newLevel.wav");
-            JOptionPane.showMessageDialog(this, "Parabéns, você passou de fase!\nFase: " + faseAtual);
+            JOptionPane.showMessageDialog(this, "Parabens, voce passou de fase!\nFase: " + faseAtual);
         }
         else {
             if (faseAtual == 2) mapa = new Mapa01();
@@ -142,8 +140,7 @@ public class Jogo extends javax.swing.JFrame {
             if (faseAtual == 4) mapa = new Mapa03();
             if (faseAtual == 5) mapa = new Mapa04();
             faseAtual--;
-        }
-        
+        }        
         
         this.setTitle("This is the ONLY Level! - Nivel " + faseAtual);
         removeKeyListener(listener);
@@ -171,6 +168,7 @@ public class Jogo extends javax.swing.JFrame {
     
     public static synchronized void tocarSom(final String url) {
         new Thread(new Runnable() {
+            @Override
             public void run() {
                 try {
                     AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("audio//" + url));

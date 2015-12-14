@@ -18,10 +18,10 @@ public class Fim extends javax.swing.JFrame {
         setContentPane(contentPane);
 
         JLabel label = new JLabel();
-        label.setMinimumSize(new Dimension(420, 420));
+        label.setMinimumSize(new Dimension(425, 425));
         label.setIcon(new ImageIcon(getClass().getResource("img//fundo2.png")));
 
         contentPane.add(label);
-        setBounds(200, 200, 420, 420);
+        setBounds(200, 200, 425, 425);
     }
 }
